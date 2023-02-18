@@ -15,6 +15,7 @@
 
 console.log(staircase(6))*/
 
+ ///forma larga e inverso
 function staircase(n: number): string {
     let output:string = "";
     let signal:string = "\n" + "#";
@@ -28,5 +29,13 @@ function staircase(n: number): string {
     }
     return signal
  }
- 
  console.log(staircase(8))
+
+
+ ///forma optimizada
+ function staircases(n:number) {
+  for (let i = 1; i <= n; i++) {
+      console.log(" ".repeat(n-i) + "#".repeat(i))
+  }    
+}
+console.log(staircases(5))
