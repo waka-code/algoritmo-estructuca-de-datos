@@ -1,4 +1,30 @@
 function birthdayCakeCandles(candles: number[]): number | undefined {
+  let contador: number = 0;
+  let mostLargerNum = Math.max(...candles);
+  for (let i = 0; i < candles.length; i++) {
+    if (candles[i] === mostLargerNum) {
+      console.log(candles[i]);
+      contador++;
+    }
+  }
+  return contador;
+}
+
+console.log(birthdayCakeCandles([3, 2, 1, 3]));
+console.log(birthdayCakeCandles([44, 53, 31, 27, 77, 60, 66, 77, 26, 36])); 
+console.log(birthdayCakeCandles([18, 90, 90, 13, 90, 75, 90, 8, 90, 43]));
+console.log(birthdayCakeCandles([82, 49, 82, 82, 41, 82, 15, 63, 38, 25]));
+console.log(birthdayCakeCandles([77, 53, 31, 27, 77, 60, 66, 77, 26, 36]));
+console.log(
+  birthdayCakeCandles([
+    1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 100,
+  ])
+);
+
+
+
+/*
+function birthdayCakeCandles(candles: number[]): number | undefined {
   let data: number[] = [];
   let contador: number = 0;
   for (let i = 0; i < candles.length; i++) {
@@ -14,18 +40,7 @@ function birthdayCakeCandles(candles: number[]): number | undefined {
   }
 }
 
-console.log(birthdayCakeCandles([3, 2, 1, 3]));
-console.log(birthdayCakeCandles([44, 53, 31, 27, 77, 60, 66, 77, 26, 36])); // 2
-console.log(birthdayCakeCandles([18, 90, 90, 13, 90, 75, 90, 8, 90, 43])); //5
-console.log(birthdayCakeCandles([82, 49, 82, 82, 41, 82, 15, 63, 38, 25]));
-console.log(birthdayCakeCandles([77, 53, 31, 27, 77, 60, 66, 77, 26, 36]));
-console.log(
-  birthdayCakeCandles([
-    1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 100,
-  ])
-);
-
-/*Estás a cargo de la torta para el cumpleaños de un niño.
+Estás a cargo de la torta para el cumpleaños de un niño.
 Has decidido que el pastel tendrá una vela por cada año de su edad total.
 Solo podrán apagar la vela más alta.
 Cuenta cuántas velas son más altas.
