@@ -66,18 +66,18 @@ console.log(romanToInt("MM"));*/
 
 function romanToInt(s: string): number {
   const romanNumber = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-  let num: number = 0;
+  let result: number = 0;
   for (let i = 0; i < s.length; i++) {
     const prev: number = romanNumber[s[i]];
     const next: number = romanNumber[s[i + 1]];
     if (prev < next) {
-      num -= prev;
+      result -= prev;
     } else {
-      num += prev;
+      result += prev;
     }
     // (curr < next) ? (num -= curr) : (num += curr);
   }
-  return num;
+  return result;
 }
 
 console.log(romanToInt("IV"));
