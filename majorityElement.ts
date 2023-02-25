@@ -16,7 +16,8 @@ console.log(majorityElement([3,2,3]))
 console.log(majorityElement([3, 3, 4]));
 console.log(majorityElement([6,5,5]));
 
-//2
+
+// Optimizado
 function majorityElement(nums: number[]): number {
   const num = nums.sort((nums0, nums1) => nums0 - nums1);
   const numsLongitud: number = nums.length;
