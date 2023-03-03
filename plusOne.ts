@@ -5,16 +5,24 @@ de más significativos a menos significativos en orden de izquierda a derecha.
 El entero grande no contiene ningún 's inicial.ith0
 Incremente el entero grande en uno y devuelva la matriz de dígitos resultante .
 */
+const digits = [1, 2, 3, 4, 5];
 
-function plusOne(digits: number[]): number[] {
-  let longitud = digits.length;
-  let ultimoIndice = longitud - 1;
-  let ultimoElemento = digits[ultimoIndice];
-  ultimoElemento += 1;
-  digits[ultimoIndice] = ultimoElemento;
-
-  return digits.length === 1 ? [1,0] : digits;
+//1
+function plusOnes(digits: number[]): number[] {
+  for (let i = 0; i < digits.length; i++) {
+    if (digits[digits.length - 1] === digits[i]) {
+      digits[digits.length - 1]++;
+    }
+  }
+  return digits;
 }
 
-const digits = [9];
-console.log(plusOne(digits));
+//2
+function plusOne(digits: number[]): number[] {
+  digits[digits.length - 1]++;
+  return digits;
+}
+
+console.time(`time`);
+console.log(plusOnes(digits));
+console.timeEnd("time");

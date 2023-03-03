@@ -3,8 +3,8 @@ function quickSort(array: number[]): any {
   if (array.length < 1) {
     return [];
   }
-  let right = [];
-  let left = [];
+  let right:number[] = [];
+  let left:number[] = [];
   let pivot = array[0];
 
   for (let i = 1; i < array.length; i++) {
