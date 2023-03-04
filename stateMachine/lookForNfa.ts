@@ -23,17 +23,18 @@ let archive = "./archivo.txt";
 const word = readFileSync(join(__dirname, archive), "utf-8");
 const lowercaseWord = word.toLowerCase().split(" ");
 
-function s(text: string[], count: number) {
+function s(text: string[], count: number):string | number {
   if (text.length === 0) return count;
   else {
     text.forEach((e) => {
       if (e == "the") Q1(text, count++);
     });
   }
-  return count;
+  let repeatedWord = `la palabra The se repite ${count}`;
+  return repeatedWord;
 }
 
-function Q1(text: string[], count: number) {
+function Q1(text: string[], count: number):number {
   if (text.length === 0) return count;
   else {
     text.forEach((e) => {
@@ -42,7 +43,7 @@ function Q1(text: string[], count: number) {
   }
   return count;
 }
-function Q2(text: string[], count: number) {
+function Q2(text: string[], count: number):number | undefined {
   if (text.length === 0) return count;
 }
 
