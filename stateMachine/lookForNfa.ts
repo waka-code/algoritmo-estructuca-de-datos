@@ -1,87 +1,51 @@
 /* b) Con un DFA programado (Recomendación: Utilizar recursión. */
+/*
+Solución #2: DFA
 
-// Ejemplos
-var ejemplo1 = ['0','1','0']; // 010
-var ejemplo2 = ["1","1","1"]; // 111;
-var ejemplo3 = [0,0,0]; // 000;
+1) Cantidad de palabras: X palabras.
+2) Tiempo de ejecución: X milisegundos.
+3) Memoria utilizada durante la ejecución: X KB
 
-var alfabeto = {
-0:'0',
-1:'1'
-};
+a)
+Patrón: "The", case insensitive.
+Válido: The, THE, the, THe, Atthebute, etc.
+Inválido: eht, aaaaaaaa, Attribute, etc.
 
-//Estados
-function S(str:string[], pos:number){
-if(str.length == pos){
-console.log('INVALIDA');
-return;
-}
-console.log('S');
-console.log('Char: ' + str[pos]);
-console.log('___');
-// Transitions
-switch(str[pos]){
-case '0':
-S(str, pos+1);
-break;
+b)
+Patrón: " The ", case insensitive, word.
+Válido: The, THE, the, THe...
+Inválido: eht, aaaaaaaa, Attribute, Atthebute, etc.
+*/
+import { readFileSync } from "fs";
+import { join } from "path";
 
-case '1':
-Q1(str, pos+1);
-break;
+let archive = "./archivo.txt";
+const word = readFileSync(join(__dirname, archive), "utf-8");
+const lowercaseWord = word.toLowerCase().split(" ");
 
-default:
-console.log('INVÁLIDA');
-break;
-}
-
+function s(text: string[], count: number) {
+  if (text.length === 0) return count;
+  else {
+    text.forEach((e) => {
+      if (e == "the") Q1(text, count++);
+    });
+  }
+  return count;
 }
 
-function Q1(str:string[], pos:number){
-if(str.length == pos){
-console.log('INVALIDA');
-return;
+function Q1(text: string[], count: number) {
+  if (text.length === 0) return count;
+  else {
+    text.forEach((e) => {
+      if (e == "the") Q2(text, count++);
+    });
+  }
+  return count;
 }
-// Transitions
-console.log('Q1');
-console.log('Char: ' + str[pos]);
-console.log('___');
-switch(str[pos]){
-case '0':
-F(str, pos+1);
-break;
-
-case '1':
-Q1(str, pos+1);
-break;
-
-default:
-console.log('INVÁLIDA');
-break;
-}
+function Q2(text: string[], count: number) {
+  if (text.length === 0) return count;
 }
 
-function F(str:string[], pos:number){
-if(str.length == pos){
-console.log('VALIDA');
-return;
-}
-console.log('F');
-console.log('Char: ' + str[pos]);
-console.log('___');
-switch(str[pos]){
-case '0':
-F(str, pos+1);
-break;
-
-case '1':
-console.log('INVÁLIDA');
-break;
-
-default:
-console.log('INVÁLIDA');
-break;
-}
-
-}
-
-S(ejemplo1, 0);
+console.time(`time`);
+console.log(s(lowercaseWord, 0));
+console.timeEnd("time");

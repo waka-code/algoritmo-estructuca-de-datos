@@ -1,10 +1,13 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 
+let archive = "./archivo.txt";
+const word = readFileSync(join(__dirname, archive), "utf-8");
+const lowercaseWord = word.toLowerCase();
+
 function lookForRegex(text: string, keyword: RegExp): string {
   if (text) {
-    let word = readFileSync(join(__dirname, text), "utf-8");
-    let searchWord = [...word.toLowerCase().matchAll(keyword)].length;
+    let searchWord = [...text.matchAll(keyword)].length;
     return `la palabra The se repite ${searchWord}`;
   } else {
     return "Campo Vacio.";
@@ -12,5 +15,5 @@ function lookForRegex(text: string, keyword: RegExp): string {
 }
 
 console.time(`time`);
-console.log(lookForRegex("./archivo.txt", /the/g));
+console.log(lookForRegex(lowercaseWord, /the/g));
 console.timeEnd("time");

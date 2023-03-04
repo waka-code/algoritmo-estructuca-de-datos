@@ -5,7 +5,7 @@ de más significativos a menos significativos en orden de izquierda a derecha.
 El entero grande no contiene ningún 's inicial.ith0
 Incremente el entero grande en uno y devuelva la matriz de dígitos resultante .
 */
-const digits = [1, 2, 3, 4, 5];
+const digits = [1, 2, 3, 4, 10];
 
 //1
 function plusOnes(digits: number[]): number[] {
@@ -16,7 +16,6 @@ function plusOnes(digits: number[]): number[] {
   }
   return digits;
 }
-
 //2
 function plusOne(digits: number[]): number[] {
   digits[digits.length - 1]++;
