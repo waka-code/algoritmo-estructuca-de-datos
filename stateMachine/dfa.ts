@@ -63,7 +63,14 @@ function processWord(word: string) {
         break;
     }
   }
-  return counter;
+  return `la palabra The se repite ${counter}`;
 }
-
+console.log(`DFA`);
+console.log(`------------------`);
+console.time(`time`);
 console.log(processWord(lowercaseWord));
+console.timeEnd("time")
+console.log(`------------------`);
+
+
+

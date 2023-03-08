@@ -7,22 +7,21 @@ var alfabet = {
     h: "h",
     e: "e"
 };
+var archive = "./archivo.txt";
+var archives = "./full_speech.txt";
+var word = (0, fs_1.readFileSync)((0, path_1.join)(__dirname, archive), "utf-8");
+var lowercaseWord = word.toLowerCase();
 function processWord(word) {
     var currentState = "S";
+    var counter = 0;
     for (var i = 0; i < word.length; i++) {
         var char = word[i];
         switch (currentState) {
             //estado incial
             case "S":
                 switch (char) {
-                    case "t":
-                        currentState = "S";
-                        break;
-                    case "h":
+                    case alfabet.t:
                         currentState = "Q1";
-                        break;
-                    case "e":
-                        currentState = "Q2";
                         break;
                     default:
                         currentState = "S";
@@ -32,13 +31,10 @@ function processWord(word) {
             //estado Q1
             case "Q1":
                 switch (char) {
-                    case "t":
-                        currentState = "S";
-                        break;
-                    case "h":
+                    case alfabet.t:
                         currentState = "Q1";
                         break;
-                    case "e":
+                    case alfabet.h:
                         currentState = "Q2";
                         break;
                     default:
@@ -49,14 +45,15 @@ function processWord(word) {
             //estado Q2
             case "Q2":
                 switch (char) {
-                    case "t":
+                    case alfabet.t:
                         currentState = "S";
                         break;
-                    case "h":
-                        currentState = "Q1";
+                    case alfabet.h:
+                        currentState = "S";
                         break;
-                    case "e":
+                    case alfabet.e:
                         currentState = "Q2";
+                        counter++;
                         break;
                     default:
                         currentState = "S";
@@ -65,11 +62,11 @@ function processWord(word) {
                 break;
         }
     }
-    return currentState === "Q2";
+    return "la palabra The se repite ".concat(counter);
 }
-var archive = "./archivo.txt";
-var word = (0, fs_1.readFileSync)((0, path_1.join)(__dirname, archive), "utf-8");
-var lowercaseWord = word.toLowerCase().split(" ");
-var SearchWord = lowercaseWord.map(function (w) { return processWord(w); });
-var count = SearchWord.reduce(function (total, current) { return (current ? total + 1 : total); }, 0);
-console.log(count);
+console.log("DFA");
+console.log("------------------");
+console.time("time");
+console.log(processWord(lowercaseWord));
+console.timeEnd("time");
+console.log("------------------");
