@@ -22,34 +22,41 @@ var fs_1 = require("fs");
 var path_1 = require("path");
 var archive = "./archivo.txt";
 var word = (0, fs_1.readFileSync)((0, path_1.join)(__dirname, archive), "utf-8");
-var lowercaseWord = word.toLowerCase().split(" ");
-function s(text, count, keyword) {
+var contador = [];
+var lowercaseWord = word.toLowerCase().split("");
+function s(text, count, t, h, es) {
     if (text.length === 0)
         return count;
     else {
         text.forEach(function (e) {
-            if (e == keyword)
-                Q1(text, count++, keyword);
+            if (e == t)
+                Q1(text, count++, t, h, es, e);
+            else if (e == h)
+                Q2(text, count++, t, h, es, e);
+            else if (e == es)
+                Q3(text, count++, t, h, es, e);
         });
     }
-    var repeatedWord = "la palabra The se repite ".concat(count);
+    var repeatedWord = contador.length;
     return repeatedWord;
 }
-function Q1(text, count, keyword) {
+function Q1(text, count, t, h, es, e) {
     if (text.length === 0)
         return count;
     else {
-        text.forEach(function (e) {
-            if (e == keyword)
-                Q2(text, count++);
-        });
+        contador.push(t + h + es);
+        console.log(contador);
     }
     return count;
 }
-function Q2(text, count) {
+function Q2(text, count, t, h, es, e) {
+    if (text.length === 0)
+        return count;
+}
+function Q3(text, count, t, h, es, e) {
     if (text.length === 0)
         return count;
 }
 console.time("time");
-console.log(s(lowercaseWord, 0, "the"));
+console.log(s(lowercaseWord, 0, "t", "h", "e"));
 console.timeEnd("time");

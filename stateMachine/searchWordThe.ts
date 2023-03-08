@@ -2,7 +2,8 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 const archive = "./archivo.txt";
-const word = readFileSync(join(__dirname, archive), "utf-8");
+const archives = "./full_speech.txt";
+const word = readFileSync(join(__dirname, archives), "utf-8");
 const lowercaseWord = word.toLowerCase();
 
 function lookFor(text: string, keyword: string): string {

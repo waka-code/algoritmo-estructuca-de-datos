@@ -1,0 +1,15 @@
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\bin\Debug\net7.0\Dotnet.exe
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\bin\Debug\net7.0\Dotnet.deps.json
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\bin\Debug\net7.0\Dotnet.runtimeconfig.json
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\bin\Debug\net7.0\Dotnet.dll
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\bin\Debug\net7.0\Dotnet.pdb
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.csproj.AssemblyReference.cache
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.AssemblyInfoInputs.cache
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.AssemblyInfo.cs
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.csproj.CoreCompileInputs.cache
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.dll
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\refint\Dotnet.dll
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.pdb
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\Dotnet.genruntimeconfig.cache
+C:\Users\Blady\OneDrive\Escritorio\algoritmo\Dotnet\obj\Debug\net7.0\ref\Dotnet.dll

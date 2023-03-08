@@ -21,32 +21,75 @@ import { join } from "path";
 
 let archive = "./archivo.txt";
 const word = readFileSync(join(__dirname, archive), "utf-8");
-const lowercaseWord = word.toLowerCase().split(" ");
+let contador: string[] = [];
+const lowercaseWord = word.toLowerCase().split("");
 
-function s(text: string[], count: number, keyword: string): string | number {
+function s(
+  text: string[],
+  count: number,
+  t: string,
+  h: string,
+  es: string
+): string | number {
   if (text.length === 0) return count;
   else {
     text.forEach((e) => {
-      if (e == keyword) Q1(text, count++, keyword);
-    });
+      if (e == t) Q1(text, count++, t, h, es, e);
+      else if (e == h) Q2(text, count++, t, h, es, e);
+      else if (e == es) Q3(text, count++, t, h, es, e);
+    },
+    count++
+    );
   }
-  let repeatedWord = `la palabra The se repite ${count}`;
-  return repeatedWord;
+
+  let repeatedWord = contador.length;
+  return count;
 }
 
-function Q1(text: string[], count: number, keyword: string): number {
+function Q1(
+  text: string[],
+  count: number,
+  t: string,
+  h: string,
+  es: string,
+  e: any
+): number {
   if (text.length === 0) return count;
   else {
-    text.forEach((e) => {
-      if (e == keyword) Q2(text, count++);
-    });
+    contador.push(t);
   }
   return count;
 }
-function Q2(text: string[], count: number):number | undefined {
+function Q2(
+  text: string[],
+  count: number,
+  t: string,
+  h: string,
+  es: string,
+  e: any
+): number | undefined {
   if (text.length === 0) return count;
+  else {
+    contador.push(h);
+    console.log(contador)
+  }
+}
+
+function Q3(
+  text: string[],
+  count: number,
+  t: string,
+  h: string,
+  es: string,
+  e: any
+): number | undefined {
+  if (text.length === 0) return count;
+  else {
+    contador.push(es);
+    console.log(contador)
+  }
 }
 
 console.time(`time`);
-console.log(s(lowercaseWord, 0, "the"));
+console.log(s(lowercaseWord, 0, "t", "h", "e"));
 console.timeEnd("time");

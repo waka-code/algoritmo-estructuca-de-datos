@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 
-let archive = "./archivo.txt";
+let archive = "./archivo.txt"; 
 const word = readFileSync(join(__dirname, archive), "utf-8");
 const lowercaseWord = word.toLowerCase().split(" ");
 
