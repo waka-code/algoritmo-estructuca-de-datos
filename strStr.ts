@@ -18,3 +18,7 @@ function strStr(haystack: string, needle: string): number {
     let index: number = haystack.indexOf(needle) 
     return index
  };
+ 
+ const Input= "sadbutsad"
+ const Inputs = "sad"
+ console.log(strStr(Input,Inputs))
